@@ -53,8 +53,11 @@ El dashboard responde una pregunta principal —dónde pilotear durante 30 días
 | Accesibilidad básica | Controles etiquetados, foco visible, regiones y texto alternativo | 0 selectores sin etiqueta; 4 visuales con descripción; foco CSS y `aria-live` | Pasa |
 | IDs HTML | Sin duplicados | 0 duplicados | Pasa |
 | Recursos locales | HTML, CSS, JS y JSON cargan | Carga correcta; 0 errores de consola | Pasa |
-| Recursos públicos | HTTP exitoso desde GitHub Pages | Pendiente de publicación | Pendiente |
-| Commit público | URL corresponde al commit final | Pendiente de publicación | Pendiente |
+| Recursos públicos | HTML, CSS, JS y JSON cargan desde GitHub Pages | Documento completo; `styles.css` con 104 reglas, `app.js` ejecutado y 240 filas procesadas | Pasa |
+| Commit público | URL corresponde al contenido publicado | Despliegue inicial desde `bfc6d15aaa1a964811853fdb86eaf87d8284ed3c`; documentación final añadida después | Pasa |
+
+**URL verificada:** https://a01751310.github.io/ai-tools-github-2-sep-26/  
+**Repositorio:** https://github.com/A01751310/ai-tools-github-2-sep-26
 
 ## 5. Evidencia visual
 

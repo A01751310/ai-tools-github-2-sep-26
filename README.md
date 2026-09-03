@@ -50,9 +50,10 @@ Sirve la raíz del proyecto con cualquier servidor HTTP estático y abre `index.
 
 ## Publicación
 
-- Repositorio: se añadirá tras la autorización de publicación.
-- GitHub Pages: se añadirá tras verificar el despliegue público.
-- Commit final: se añadirá después de la verificación pública.
+- Repositorio público: https://github.com/A01751310/ai-tools-github-2-sep-26
+- GitHub Pages: https://a01751310.github.io/ai-tools-github-2-sep-26/
+- Publicación verificada: 2 de septiembre de 2026; documento completo, estilos, lógica y datos cargados desde la URL pública.
+- Commit de publicación inicial: `bfc6d15aaa1a964811853fdb86eaf87d8284ed3c`.
 
 ## Validación
 
