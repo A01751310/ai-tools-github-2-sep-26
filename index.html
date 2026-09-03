@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard interactivo de datos sintéticos para priorizar un piloto operativo de LogiFresh México.">
+  <meta name="theme-color" content="#0b3b49">
+  <title>LogiFresh | Dashboard de servicio refrigerado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#dashboard">Saltar al dashboard</a>
+  <header class="hero">
+    <div class="hero__inner">
+      <div>
+        <p class="eyebrow">LogiFresh México · Datos sintéticos</p>
+        <h1>Servicio refrigerado: de la señal al piloto</h1>
+        <p class="hero__summary">Vista ejecutiva para localizar incumplimientos, incidentes e impacto económico antes de intervenir.</p>
+      </div>
+      <dl class="hero__meta" aria-label="Contexto del análisis">
+        <div><dt>Periodo</dt><dd>1 abr–28 jun 2026</dd></div>
+        <div><dt>Meta SLA</dt><dd>90% de entregas</dd></div>
+        <div><dt>Actualización</dt><dd>2 sep 2026</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <main id="dashboard" class="shell">
+    <section class="decision" aria-labelledby="decision-title">
+      <div>
+        <p class="section-kicker">Pregunta de decisión</p>
+        <h2 id="decision-title">¿Dónde concentrar un piloto de mejora de 30 días?</h2>
+      </div>
+      <p>Priorizar un segmento con brecha de SLA e impacto material, y definir qué evidencia falta antes de atribuir causas.</p>
+    </section>
+
+    <section class="filters" aria-labelledby="filters-title">
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="section-kicker">Alcance</p>
+          <h2 id="filters-title">Filtros</h2>
+        </div>
+        <div class="filter-actions">
+          <p id="filter-status" class="filter-status" role="status" aria-live="polite">Cargando datos…</p>
+          <button id="reset-filters" class="button" type="button">Restablecer</button>
+        </div>
+      </div>
+      <div class="filter-grid">
+        <label>Mes<select id="filter-month" data-field="month"><option value="">Todos</option></select></label>
+        <label>Origen<select id="filter-origin" data-field="origen"><option value="">Todos</option></select></label>
+        <label>Destino<select id="filter-destination" data-field="destino"><option value="">Todos</option></select></label>
+        <label>Producto<select id="filter-product" data-field="producto"><option value="">Todos</option></select></label>
+        <label>Transportista<select id="filter-carrier" data-field="transportista"><option value="">Todos</option></select></label>
+        <label>Tipo de ruta<select id="filter-route" data-field="tipo_ruta"><option value="">Todos</option></select></label>
+        <label>Estado SLA<select id="filter-sla" data-field="sla_entrega"><option value="">Todos</option></select></label>
+        <label>Incidente<select id="filter-incident" data-field="tipo_incidente"><option value="">Todos</option></select></label>
+      </div>
+    </section>
+
+    <div id="load-error" class="message error" hidden role="alert">
+      No fue posible cargar los datos. Actualiza la página o revisa la conexión.
+    </div>
+
+    <section aria-labelledby="kpi-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">Estado</p><h2 id="kpi-title">Indicadores clave</h2></div>
+        <p class="definition">SLA = embarques que cumplen ÷ embarques filtrados.</p>
+      </div>
+      <div id="kpi-grid" class="kpi-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="analysis-grid" aria-label="Diagnóstico visual">
+      <article class="panel panel--wide">
+        <div class="panel__heading">
+          <div><p class="section-kicker">Evolución</p><h2>SLA por mes</h2></div>
+          <span class="target-key"><i></i> Meta 90%</span>
+        </div>
+        <p class="chart-note">Porcentaje de embarques que cumplen. Barras desde cero.</p>
+        <div id="monthly-sla-chart" class="chart" role="img" aria-label="SLA mensual comparado con la meta de 90 por ciento"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel__heading">
+          <div><p class="section-kicker">Comparación</p><h2>SLA por segmento</h2></div>
+          <label class="inline-select">Segmentar por
+            <select id="segment-dimension">
+              <option value="tipo_ruta">Tipo de ruta</option>
+              <option value="producto">Producto</option>
+              <option value="transportista">Transportista</option>
+              <option value="origen">Origen</option>
+              <option value="destino">Destino</option>
+            </select>
+          </label>
+        </div>
+        <p class="chart-note">Porcentaje y volumen del segmento; la línea marca la meta.</p>
+        <div id="segment-sla-chart" class="chart" role="img" aria-label="SLA por segmento"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel__heading"><div><p class="section-kicker">Frecuencia</p><h2>Incidentes registrados</h2></div></div>
+        <p class="chart-note">Conteo por categoría; describe registros, no causas.</p>
+        <div id="incident-chart" class="chart" role="img" aria-label="Incidentes por categoría"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel__heading"><div><p class="section-kicker">Impacto</p><h2>Reclamaciones por producto</h2></div></div>
+        <p class="chart-note">Suma en MXN asociada a embarques filtrados.</p>
+        <div id="claims-chart" class="chart" role="img" aria-label="Monto de reclamaciones por producto"></div>
+      </article>
+    </section>
+
+    <section class="interpretation" aria-labelledby="interpretation-title">
+      <div class="section-heading">
+        <div><p class="section-kicker">Interpretación</p><h2 id="interpretation-title">De la evidencia a la acción</h2></div>
+        <p class="definition">Las asociaciones observadas no demuestran causalidad.</p>
+      </div>
+      <div class="interpretation-grid">
+        <article><span class="chip chip--fact">Hechos</span><div id="facts-panel"></div></article>
+        <article><span class="chip chip--hypothesis">Hipótesis</span><div id="hypotheses-panel"></div></article>
+        <article><span class="chip chip--action">Próximo paso</span><div id="next-step-panel"></div></article>
+      </div>
+    </section>
+
+    <section class="panel detail" aria-labelledby="detail-title">
+      <div class="panel__heading detail__heading">
+        <div><p class="section-kicker">Trazabilidad</p><h2 id="detail-title">Detalle de embarques</h2></div>
+        <div class="table-actions">
+          <label>Buscar ID<input id="table-search" type="search" placeholder="LF-0001" autocomplete="off"></label>
+          <button id="download-csv" class="button button--secondary" type="button">Descargar CSV filtrado</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Embarques que coinciden con los filtros activos</caption>
+          <thead><tr><th>ID</th><th>Fecha</th><th>Origen → destino</th><th>Producto</th><th>Transportista</th><th>Ruta</th><th>SLA</th><th>Retraso</th><th>Incidente</th><th>Temp. máx.</th><th>Reclamación</th><th>Satisfacción</th></tr></thead>
+          <tbody id="detail-body"></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <p id="table-count">0 resultados</p>
+        <div><button id="prev-page" class="button button--secondary" type="button">Anterior</button><span id="page-status">Página 1</span><button id="next-page" class="button button--secondary" type="button">Siguiente</button></div>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <div><p class="section-kicker">Método y límites</p><h2 id="method-title">Cómo leer este dashboard</h2></div>
+      <div class="method-grid">
+        <p><strong>Fuente.</strong> Dataset sintético “Datos_sinteticos_LogiFresh_dashboard.xlsx”; 240 embarques.</p>
+        <p><strong>Periodo y unidades.</strong> Abril–junio de 2026; retraso en minutos, temperatura en °C y reclamaciones en MXN.</p>
+        <p><strong>Corrección documentada.</strong> LF-0224 se reconcilió de $4,399 a $4,499 MXN para coincidir con el control de $882,649; el original no se modificó.</p>
+        <p><strong>Limitaciones.</strong> Datos sintéticos, muestra corta y patrones balanceados; faltan causas raíz, costos de intervención y variables externas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>LogiFresh México · Ejercicio académico · Datos sintéticos · Actualizado el 2 de septiembre de 2026</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

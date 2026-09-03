@@ -1,0 +1,395 @@
+{
+  "source": "Datos_sinteticos_LogiFresh_dashboard.xlsx",
+  "raw_metrics": {
+    "shipments": 240,
+    "sla_rate": 76.7,
+    "late_delay_avg": 51.8,
+    "incidents": 52,
+    "excursions": 9,
+    "claims_mxn": 882549,
+    "satisfaction_avg": 8.5
+  },
+  "metrics": {
+    "shipments": 240,
+    "sla_rate": 76.7,
+    "late_delay_avg": 51.8,
+    "incidents": 52,
+    "excursions": 9,
+    "claims_mxn": 882649,
+    "satisfaction_avg": 8.5
+  },
+  "expected": {
+    "shipments": 240,
+    "sla_rate": 76.7,
+    "late_delay_avg": 51.8,
+    "incidents": 52,
+    "excursions": 9,
+    "claims_mxn": 882649,
+    "satisfaction_avg": 8.5
+  },
+  "reconciliation": {
+    "shipments": true,
+    "sla_rate": true,
+    "late_delay_avg": true,
+    "incidents": true,
+    "excursions": true,
+    "claims_mxn": true,
+    "satisfaction_avg": true
+  },
+  "corrections": [
+    {
+      "id_embarque": "LF-0224",
+      "field": "reclamacion_mxn",
+      "raw": 4399,
+      "reconciled": 4499,
+      "reason": "Reconciliación contra el valor de control del libro (+100 MXN)."
+    }
+  ],
+  "quality": {
+    "rows": 240,
+    "columns": 18,
+    "missing_cells": 0,
+    "duplicate_rows": 0,
+    "duplicate_ids": 0,
+    "date_min": "2026-04-01",
+    "date_max": "2026-06-28",
+    "sla_delay_inconsistencies": 0,
+    "temperature_flag_inconsistencies": 0,
+    "negative_numeric_values": 0,
+    "satisfaction_out_of_range": 0,
+    "occupancy_out_of_range": 0
+  },
+  "incident_counts": {
+    "Falla mecánica": 14,
+    "Ventana de entrega": 12,
+    "Temperatura": 9,
+    "Documentación": 9,
+    "Tráfico": 8
+  },
+  "segment_summaries": {
+    "transportista": [
+      {
+        "segment": "Centro",
+        "shipments": 60,
+        "sla_rate": 76.7,
+        "late_delay_avg": 51.9,
+        "incidents": 13,
+        "excursions": 2,
+        "claims_mxn": 367550,
+        "satisfaction_avg": 9.0
+      },
+      {
+        "segment": "Norte",
+        "shipments": 60,
+        "sla_rate": 76.7,
+        "late_delay_avg": 50.6,
+        "incidents": 13,
+        "excursions": 2,
+        "claims_mxn": 118700,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "Pacífico",
+        "shipments": 60,
+        "sla_rate": 76.7,
+        "late_delay_avg": 53.1,
+        "incidents": 13,
+        "excursions": 3,
+        "claims_mxn": 259400,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "Sureste",
+        "shipments": 60,
+        "sla_rate": 76.7,
+        "late_delay_avg": 51.6,
+        "incidents": 13,
+        "excursions": 2,
+        "claims_mxn": 136999,
+        "satisfaction_avg": 9.0
+      }
+    ],
+    "tipo_ruta": [
+      {
+        "segment": "Consolidada",
+        "shipments": 80,
+        "sla_rate": 76.3,
+        "late_delay_avg": 47.4,
+        "incidents": 17,
+        "excursions": 3,
+        "claims_mxn": 227400,
+        "satisfaction_avg": 8.5
+      },
+      {
+        "segment": "Estándar",
+        "shipments": 80,
+        "sla_rate": 76.3,
+        "late_delay_avg": 55.6,
+        "incidents": 17,
+        "excursions": 3,
+        "claims_mxn": 443849,
+        "satisfaction_avg": 8.5
+      },
+      {
+        "segment": "Prioritaria",
+        "shipments": 80,
+        "sla_rate": 77.5,
+        "late_delay_avg": 52.5,
+        "incidents": 18,
+        "excursions": 3,
+        "claims_mxn": 211400,
+        "satisfaction_avg": 8.5
+      }
+    ],
+    "producto": [
+      {
+        "segment": "Berries",
+        "shipments": 48,
+        "sla_rate": 75.0,
+        "late_delay_avg": 49.2,
+        "incidents": 10,
+        "excursions": 2,
+        "claims_mxn": 119400,
+        "satisfaction_avg": 8.5
+      },
+      {
+        "segment": "Congelados",
+        "shipments": 48,
+        "sla_rate": 77.1,
+        "late_delay_avg": 54.0,
+        "incidents": 11,
+        "excursions": 2,
+        "claims_mxn": 179100,
+        "satisfaction_avg": 8.5
+      },
+      {
+        "segment": "Cárnicos",
+        "shipments": 48,
+        "sla_rate": 77.1,
+        "late_delay_avg": 53.0,
+        "incidents": 10,
+        "excursions": 2,
+        "claims_mxn": 208149,
+        "satisfaction_avg": 8.5
+      },
+      {
+        "segment": "Lácteos",
+        "shipments": 48,
+        "sla_rate": 77.1,
+        "late_delay_avg": 52.0,
+        "incidents": 11,
+        "excursions": 1,
+        "claims_mxn": 16100,
+        "satisfaction_avg": 8.5
+      },
+      {
+        "segment": "Preparados",
+        "shipments": 48,
+        "sla_rate": 77.1,
+        "late_delay_avg": 51.0,
+        "incidents": 10,
+        "excursions": 2,
+        "claims_mxn": 359900,
+        "satisfaction_avg": 8.5
+      }
+    ],
+    "origen": [
+      {
+        "segment": "León",
+        "shipments": 40,
+        "sla_rate": 75.0,
+        "late_delay_avg": 46.1,
+        "incidents": 8,
+        "excursions": 1,
+        "claims_mxn": 48600,
+        "satisfaction_avg": 9.0
+      },
+      {
+        "segment": "Querétaro",
+        "shipments": 40,
+        "sla_rate": 75.0,
+        "late_delay_avg": 55.0,
+        "incidents": 8,
+        "excursions": 2,
+        "claims_mxn": 92300,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "CDMX",
+        "shipments": 40,
+        "sla_rate": 77.5,
+        "late_delay_avg": 51.4,
+        "incidents": 9,
+        "excursions": 1,
+        "claims_mxn": 107000,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "Guadalajara",
+        "shipments": 40,
+        "sla_rate": 77.5,
+        "late_delay_avg": 56.2,
+        "incidents": 9,
+        "excursions": 1,
+        "claims_mxn": 351549,
+        "satisfaction_avg": 9.0
+      },
+      {
+        "segment": "Monterrey",
+        "shipments": 40,
+        "sla_rate": 77.5,
+        "late_delay_avg": 48.8,
+        "incidents": 9,
+        "excursions": 2,
+        "claims_mxn": 178800,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "Puebla",
+        "shipments": 40,
+        "sla_rate": 77.5,
+        "late_delay_avg": 53.6,
+        "incidents": 9,
+        "excursions": 2,
+        "claims_mxn": 104400,
+        "satisfaction_avg": 9.0
+      }
+    ],
+    "destino": [
+      {
+        "segment": "Cancún",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 45.3,
+        "incidents": 6,
+        "excursions": 1,
+        "claims_mxn": 33800,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "Chihuahua",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 50.6,
+        "incidents": 7,
+        "excursions": 2,
+        "claims_mxn": 237300,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "Hermosillo",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 54.4,
+        "incidents": 6,
+        "excursions": 1,
+        "claims_mxn": 351450,
+        "satisfaction_avg": 9.0
+      },
+      {
+        "segment": "Mérida",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 55.9,
+        "incidents": 7,
+        "excursions": 1,
+        "claims_mxn": 84900,
+        "satisfaction_avg": 8.0
+      },
+      {
+        "segment": "San Luis Potosí",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 43.5,
+        "incidents": 6,
+        "excursions": 1,
+        "claims_mxn": 136999,
+        "satisfaction_avg": 9.0
+      },
+      {
+        "segment": "Tijuana",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 59.7,
+        "incidents": 7,
+        "excursions": 1,
+        "claims_mxn": 0,
+        "satisfaction_avg": 9.0
+      },
+      {
+        "segment": "Toluca",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 49.3,
+        "incidents": 7,
+        "excursions": 1,
+        "claims_mxn": 16100,
+        "satisfaction_avg": 9.0
+      },
+      {
+        "segment": "Veracruz",
+        "shipments": 30,
+        "sla_rate": 76.7,
+        "late_delay_avg": 55.7,
+        "incidents": 6,
+        "excursions": 1,
+        "claims_mxn": 22100,
+        "satisfaction_avg": 8.0
+      }
+    ]
+  },
+  "categories": {
+    "origen": [
+      "CDMX",
+      "Guadalajara",
+      "León",
+      "Monterrey",
+      "Puebla",
+      "Querétaro"
+    ],
+    "destino": [
+      "Cancún",
+      "Chihuahua",
+      "Hermosillo",
+      "Mérida",
+      "San Luis Potosí",
+      "Tijuana",
+      "Toluca",
+      "Veracruz"
+    ],
+    "producto": [
+      "Berries",
+      "Congelados",
+      "Cárnicos",
+      "Lácteos",
+      "Preparados"
+    ],
+    "transportista": [
+      "Centro",
+      "Norte",
+      "Pacífico",
+      "Sureste"
+    ],
+    "tipo_ruta": [
+      "Consolidada",
+      "Estándar",
+      "Prioritaria"
+    ],
+    "sla_entrega": [
+      "Cumple",
+      "No cumple"
+    ],
+    "tipo_incidente": [
+      "Documentación",
+      "Falla mecánica",
+      "Sin incidente",
+      "Temperatura",
+      "Tráfico",
+      "Ventana de entrega"
+    ],
+    "excursion_temp_mayor_8c": [
+      "No",
+      "Sí"
+    ]
+  }
+}
